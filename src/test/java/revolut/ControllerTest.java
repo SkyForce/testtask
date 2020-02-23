@@ -54,7 +54,6 @@ public class ControllerTest extends JerseyTest {
 
         long content = response.readEntity(Integer.class);
         assertEquals("Content of ressponse is: ", 0, content);
-
     }
 
     @Test
@@ -71,7 +70,6 @@ public class ControllerTest extends JerseyTest {
                 .delete();
 
         assertEquals("Http Response should be 404: ", Response.Status.NOT_FOUND.getStatusCode(), response.getStatus());
-
     }
 
     @Test
@@ -89,7 +87,6 @@ public class ControllerTest extends JerseyTest {
 
         long content = response.readEntity(Integer.class);
         assertEquals("Content of ressponse is: ", 10, content);
-
     }
 
     @Test
@@ -101,7 +98,6 @@ public class ControllerTest extends JerseyTest {
                 .put(Entity.form(new Form()));
 
         assertEquals("Http Response should be 404: ", Response.Status.NOT_FOUND.getStatusCode(), response.getStatus());
-
     }
 
     @Test
@@ -117,7 +113,6 @@ public class ControllerTest extends JerseyTest {
         response = target("/1").request()
                 .get();
         assertEquals("Amount must be same", 0, (long) response.readEntity(Integer.class));
-
     }
 
     @Test
@@ -146,7 +141,6 @@ public class ControllerTest extends JerseyTest {
 
         content = response.readEntity(Integer.class);
         assertEquals("Content of ressponse is: ", 10, content);
-
     }
 
     @Test
@@ -167,7 +161,6 @@ public class ControllerTest extends JerseyTest {
         response = target("/2").request()
                 .get();
         assertEquals("Amount must be same", 0, (long) response.readEntity(Integer.class));
-
     }
 
     @Test
@@ -188,7 +181,6 @@ public class ControllerTest extends JerseyTest {
         response = target("/1").request()
                 .get();
         assertEquals("Amount must be same", 10, (long) response.readEntity(Integer.class));
-
     }
 
     @Test
@@ -237,7 +229,6 @@ public class ControllerTest extends JerseyTest {
         response = target("/2").request()
                 .get();
         assertEquals("Amount must be same", 0, (long) response.readEntity(Integer.class));
-
     }
 
     @Test
@@ -249,7 +240,6 @@ public class ControllerTest extends JerseyTest {
                 .get();
 
         assertEquals("Http Response should be 404: ", Response.Status.NOT_FOUND.getStatusCode(), response.getStatus());
-
     }
 
     @Test

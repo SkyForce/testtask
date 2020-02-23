@@ -28,7 +28,7 @@ public class Controller {
         try {
             repository.deleteAccount(id);
         }
-        catch(UserNotFoundException e) {
+        catch (UserNotFoundException e) {
             return Response.status(Response.Status.NOT_FOUND).entity("User doesn't exist").build();
         }
         return Response.ok().build();
@@ -41,7 +41,7 @@ public class Controller {
             Account account = repository.getById(id);
             account.putMoney(amount);
         }
-        catch(UserNotFoundException e) {
+        catch (UserNotFoundException e) {
             return Response.status(Response.Status.NOT_FOUND).entity("User doesn't exist").build();
         }
         catch (InvalidAmountException e) {
@@ -58,10 +58,10 @@ public class Controller {
             Account toAccount = repository.getById(toId);
             fromAccount.transfer(toAccount, amount);
         }
-        catch(UserNotFoundException e) {
+        catch (UserNotFoundException e) {
             return Response.status(Response.Status.NOT_FOUND).entity("User doesn't exist").build();
         }
-        catch(NotEnoughMoneyException e) {
+        catch (NotEnoughMoneyException e) {
             return Response.status(Response.Status.FORBIDDEN).entity("Not enough money to transfer").build();
         }
         catch (InvalidAmountException e) {
@@ -78,7 +78,7 @@ public class Controller {
             Account account = repository.getById(id);
             return Response.ok(account.getAmount()).build();
         }
-        catch(UserNotFoundException e) {
+        catch (UserNotFoundException e) {
             return Response.status(Response.Status.NOT_FOUND).entity("User doesn't exist").build();
         }
     }
